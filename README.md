@@ -12,7 +12,6 @@ App demo:
   <video width="480" controls>
     <source src="demo.mp4" type="video/mp4">
     <source src="demo.webm" type="video/webm">
-    Your browser does not support the video tag.
   </video>
 </figure>
 

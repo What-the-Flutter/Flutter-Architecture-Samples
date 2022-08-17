@@ -35,6 +35,8 @@ dependencies:
   #state management
   flutter_bloc: ^8.0.1
   get: ^4.6.1
+  redux: ^5.0.0
+  flutter_redux: ^0.9.0
 
   #db
   hive: ^2.1.0

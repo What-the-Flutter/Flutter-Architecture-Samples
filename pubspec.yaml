@@ -37,6 +37,7 @@ dependencies:
   get: ^4.6.1
   redux: ^5.0.0
   flutter_redux: ^0.9.0
+  provider: ^6.0.2
 
   #db
   hive: ^2.1.0

@@ -16,3 +16,4 @@ App demo:
 * Cubit (using [flutter_bloc](https://pub.dev/packages/flutter_bloc))
 * Bloc (using [flutter_bloc](https://pub.dev/packages/flutter_bloc))
 * GetX (using [get](https://pub.dev/packages/get))
+* Redux (using [redux](https://pub.dev/packages/redux) and [flutter_redux](https://pub.dev/packages/flutter_redux))

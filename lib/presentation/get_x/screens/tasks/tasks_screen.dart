@@ -10,26 +10,26 @@ import 'package:flutter_state_samples/presentation/widgets/icon_button.dart';
 import 'package:flutter_state_samples/presentation/widgets/task_tile.dart';
 import 'package:get/get.dart';
 
+// GetView is a const Stateless Widget that has a getter `controller` for a registered Controller
 class TasksScreen extends GetView<TasksController> {
-  final TasksController _controller = Get.find();
-
-  TasksScreen({Key? key}) : super(key: key);
+  const TasksScreen({Key? key}) : super(key: key);
 
   void _onDelete() {
-    if (_controller.isOnEdit.value) {
-      _controller.setOffEdit();
-      _controller.delete();
+    if (controller.isOnEdit.value) {
+      controller.setOffEdit();
+      controller.delete();
     } else {
-      _controller.setOnEdit();
+      controller.setOnEdit();
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    // Obx updates the widgets whenever the _controller obs fields change
     return Obx(
       () {
-        final done = _controller.tasks.where((task) => task.isDone).map(_taskToTile).toList();
-        final todo = _controller.tasks.where((task) => !task.isDone).map(_taskToTile).toList();
+        final done = controller.tasks.where((task) => task.isDone).map(_taskToTile).toList();
+        final todo = controller.tasks.where((task) => !task.isDone).map(_taskToTile).toList();
         return Material(
           child: Stack(
             children: [
@@ -38,7 +38,7 @@ class TasksScreen extends GetView<TasksController> {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: AppDimens.normal),
                   child: CustomScrollView(
-                    controller: _controller.scrollController,
+                    controller: controller.scrollController,
                     slivers: [
                       _appBar(context, todo),
                       _taskList(todo, done),
@@ -47,7 +47,7 @@ class TasksScreen extends GetView<TasksController> {
                 ),
               ),
               CustomFloatingActionButton(
-                onCreate: (title) => _controller.addTask(Task(isDone: false, title: title)),
+                onCreate: (title) => controller.addTask(Task(isDone: false, title: title)),
               ),
             ],
           ),
@@ -69,15 +69,15 @@ class TasksScreen extends GetView<TasksController> {
           top: MediaQuery.of(context).padding.top,
         ),
         title: CollapsingTitle(
-          expandMultiplier: _controller.expandMultiplier.value,
+          expandMultiplier: controller.expandMultiplier.value,
           count: todo.length,
         ),
       ),
       actions: [
-        if (_controller.isOnEdit.value)
+        if (controller.isOnEdit.value)
           CustomIconButton(
             icon: Icons.close,
-            onTap: _controller.setOffEdit,
+            onTap: controller.setOffEdit,
           ),
         CustomIconButton(
           icon: Icons.delete,
@@ -108,18 +108,18 @@ class TasksScreen extends GetView<TasksController> {
   TaskTile _taskToTile(Task task) {
     return TaskTile(
       task: task,
-      onDone: (isDone) => _controller.editDone(task, isDone),
-      isSelected: _controller.selected.contains(task),
-      onSelect: (isSelected) => _controller.select(task),
-      isOnEdit: _controller.isOnEdit.value,
+      onDone: (isDone) => controller.editDone(task, isDone),
+      isSelected: controller.selected.contains(task),
+      onSelect: (isSelected) => controller.select(task),
+      isOnEdit: controller.isOnEdit.value,
       onLongPress: () {
-        _controller.setOnEdit();
-        _controller.select(task);
+        controller.setOnEdit();
+        controller.select(task);
       },
       onTap: () async => await Get.bottomSheet(
         NewTaskBottomSheet(
           task: task,
-          onSave: (title) => _controller.editTitle(task, title),
+          onSave: (title) => controller.editTitle(task, title),
         ),
       ),
     );

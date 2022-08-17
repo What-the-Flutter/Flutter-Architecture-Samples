@@ -10,20 +10,23 @@ const expandDelta = expandedHeight - toolbarHeight;
 class TasksController extends GetxController {
   final TaskRepository _repository;
 
+  TasksController(this._repository);
+
+  // Observable fields
   RxBool isOnEdit = false.obs;
   RxList<Task> tasks = <Task>[].obs;
   RxList<Task> selected = <Task>[].obs;
 
-  final ScrollController scrollController = ScrollController();
+  final ScrollController _scrollController = ScrollController();
   RxDouble expandMultiplier = 1.0.obs;
 
-  TasksController(this._repository);
+  ScrollController get scrollController => _scrollController;
 
   @override
   void onReady() async {
     super.onReady();
-    scrollController.addListener(() {
-      final offset = scrollController.hasClients ? scrollController.offset : 0;
+    _scrollController.addListener(() {
+      final offset = _scrollController.hasClients ? _scrollController.offset : 0;
       expandMultiplier.value = offset > expandDelta ? 0.0 : 1.0 - (offset / expandDelta);
     });
 

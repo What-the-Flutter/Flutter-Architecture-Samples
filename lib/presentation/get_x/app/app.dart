@@ -9,11 +9,13 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // GetMaterialApp is necessary for routes, snackbars, internationalization, bottomSheets,
+    // dialogs, and high-level apis related to routes and absence of context
     return GetMaterialApp(
       theme: ThemeData(
         colorScheme: ColorScheme.fromSwatch().copyWith(secondary: AppColors.accent),
       ),
-      home: TasksScreen(),
+      home: const TasksScreen(),
     );
   }
 }

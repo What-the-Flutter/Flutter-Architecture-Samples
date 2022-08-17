@@ -32,8 +32,9 @@ dependencies:
 
   get_it: ^7.2.0
 
-  #business logic
+  #state management
   flutter_bloc: ^8.0.1
+  get: ^4.6.1
 
   #db
   hive: ^2.1.0

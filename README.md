@@ -15,3 +15,4 @@ App demo:
 ## Currently implemented:
 * Cubit (using [flutter_bloc](https://pub.dev/packages/flutter_bloc))
 * Bloc (using [flutter_bloc](https://pub.dev/packages/flutter_bloc))
+* GetX (using [get](https://pub.dev/packages/get))

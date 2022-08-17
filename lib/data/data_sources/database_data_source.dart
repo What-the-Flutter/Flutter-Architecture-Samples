@@ -15,12 +15,8 @@ class DatabaseDataSource {
 
   static Future<void> initializeHive({isTesting = false}) async {
     if (!kIsWeb) {
-      try {
-        Directory document = await getApplicationDocumentsDirectory();
-        Hive.init(document.path);
-      } catch (e) {
-        Hive.init('/Users/hahanya/test-todo/test/');
-      }
+      Directory document = await getApplicationDocumentsDirectory();
+      Hive.init(document.path);
     }
     Hive.registerAdapter(TaskDBAdapter());
     _tasksBox = await Hive.openBox<TaskDB>(isTesting ? _testTag : _tasksTag);

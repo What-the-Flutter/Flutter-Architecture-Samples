@@ -1,7 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_state_samples/domain/repositories/task_repository.dart';
-import 'package:flutter_state_samples/presentation/bloc/screens/tasks/tasks_event.dart';
-import 'package:flutter_state_samples/presentation/cubit/screens/tasks/tasks_state.dart';
+
+import 'tasks_event.dart';
+import 'tasks_state.dart';
 
 class TasksBloc extends Bloc<TasksEvent, TasksState> {
   final TaskRepository _repository;

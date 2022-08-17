@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_state_samples/domain/entities/task.dart';
-import 'package:flutter_state_samples/presentation/bloc/screens/tasks/tasks_bloc.dart';
-import 'package:flutter_state_samples/presentation/bloc/screens/tasks/tasks_event.dart';
-import 'package:flutter_state_samples/presentation/cubit/screens/tasks/tasks_state.dart';
 import 'package:flutter_state_samples/presentation/utils/bottom_sheet.dart';
 import 'package:flutter_state_samples/presentation/utils/colors.dart';
 import 'package:flutter_state_samples/presentation/utils/constants.dart';
@@ -13,6 +10,9 @@ import 'package:flutter_state_samples/presentation/widgets/icon_button.dart';
 import 'package:flutter_state_samples/presentation/widgets/task_tile.dart';
 
 import '../../di/injector.dart';
+import 'tasks_bloc.dart';
+import 'tasks_event.dart';
+import 'tasks_state.dart';
 
 const _expandedHeight = 125.0;
 const _toolbarHeight = 50.0;

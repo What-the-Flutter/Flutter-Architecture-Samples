@@ -1,7 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_state_samples/domain/entities/task.dart';
 import 'package:flutter_state_samples/domain/repositories/task_repository.dart';
-import 'package:flutter_state_samples/presentation/cubit/screens/tasks/tasks_state.dart';
+
+import 'tasks_state.dart';
 
 class TasksCubit extends Cubit<TasksState> {
   final TaskRepository _repository;

@@ -8,13 +8,10 @@ This project implements the tasks app using different approaches for state manag
 
 App demo:
 
-<figure class="video_container">
-  <video width="480" controls>
-    <source src="demo.mp4" type="video/mp4">
-    <source src="demo.webm" type="video/webm">
-  </video>
-</figure>
+<img src="demo.gif" width="320"/>
 
-Currently implemented:
+
+
+## Currently implemented:
 * Cubit (using [flutter_bloc](https://pub.dev/packages/flutter_bloc))
 * Bloc (using [flutter_bloc](https://pub.dev/packages/flutter_bloc))
